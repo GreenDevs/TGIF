@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/adventure/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/pre-dexed/release/support-annotations-22.2.1-48589de43b3164750a9fd9361ea50c80964e7469.jar" />
+    </item>
+    <item
+        jar="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/pre-dexed/release/classes-cdb14b12091ddf34972e47e6c89afd401838fd5f.jar" />
+    </item>
+    <item
+        jar="/home/adventure/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/pre-dexed/release/library-2.4.0-b23efb32bc6d4010fd668671da9bae77285f7675.jar" />
+    </item>
+    <item
+        jar="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/pre-dexed/release/internal_impl-22.2.1-28e0716753bf4fb18f030fc262aa96e0f181a522.jar" />
+    </item>
+    <item
+        jar="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/pre-dexed/release/classes-db5f64272cdfc47c665e4a66629ccb013145c662.jar" />
+    </item>
+    <item
+        jar="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8c6ebb7d087d1a30bf84356bd2aecf85309fc024">
+        <dex dex="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/pre-dexed/release/classes-1d2832051953b3fbe9094c99cce9f60e6b3f6095.jar" />
+    </item>
+    <item
+        jar="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/media/adventure/LocalDisk/android/Projects/newCrack/finalTgif/tgif/app/build/intermediates/pre-dexed/release/classes-1feb065a82030cda40fdc87e80aa97ffc374985d.jar" />
+    </item>
+
+</items>

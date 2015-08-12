@@ -1,0 +1,67 @@
+<android.support.v4.widget.DrawerLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout_for_webpage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.crackdeveloperz.tgif.WebActivity">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:id="@+id/main_fragment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/web_app_bar"
+            layout="@layout/app_bar" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <WebView
+                android:id="@+id/fragment_main_webview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.melnykov.fab.FloatingActionButton
+                xmlns:fab="http://schemas.android.com/apk/res-auto"
+
+                android:id="@+id/refreshFabButton"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick= "refresh"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/refresh_fab_margin"
+                android:elevation="@dimen/home_fab_elevetion"
+                android:src="@drawable/refresh"
+                fab:fab_colorNormal="@color/facebook_code"
+                fab:fab_colorPressed="@color/fab_color_pressed"
+                fab:fab_colorRipple="@color/fab_color_ripple" />
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+    <fragment
+
+        android:id="@+id/nagivation_drawer"
+        android:name="com.crackdeveloperz.tgif.NagivationDrawer"
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        tools:layout="@layout/fragment_nagivation_drawer">
+
+
+    </fragment>
+
+
+</android.support.v4.widget.DrawerLayout>

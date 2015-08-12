@@ -1,0 +1,15 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="toolbar_elevetion">15dp</dimen>
+    <dimen name="toolbar_height">80dp</dimen>
+    <dimen name="home_fab_elevetion">8dp</dimen>
+    <dimen name="home_fab_margin">15dp</dimen>
+    <dimen name="tgif_name_left_margin">10dp</dimen>
+    <dimen name="tgif_name_size">20sp</dimen>
+    <dimen name="tgif_first_char_size">25sp</dimen>
+    <dimen name="navig_icon_sep_margin">7dp</dimen>
+    <dimen name="icon_sep_height">1dp</dimen>
+    <dimen name="refresh_fab_margin">20dp</dimen>
+</resources>

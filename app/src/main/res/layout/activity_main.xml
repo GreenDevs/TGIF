@@ -1,0 +1,248 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/main_activity_bg"
+    tools:context="com.crackdeveloperz.tgif.MainActivity"
+    >
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               >
+
+               <include
+                   layout="@layout/app_bar"
+                   android:id="@+id/tool_bar"
+                   />
+
+               <LinearLayout
+                   android:layout_width="fill_parent"
+                   android:orientation="horizontal"
+                   android:id="@+id/linear_layout_tumblr"
+                   android:clickable="true"
+                   android:layout_height="wrap_content">
+
+                   <com.melnykov.fab.FloatingActionButton
+                       android:id="@+id/fab_tumblr"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:onClick= "launch"
+                       android:elevation="@dimen/home_fab_elevetion"
+                       android:layout_gravity="bottom|right"
+                       android:layout_margin="@dimen/home_fab_margin"
+
+                       fab:fab_colorNormal="@color/tumblr_code"
+                       fab:fab_colorPressed="@color/fab_color_pressed"
+                       fab:fab_colorRipple="@color/fab_color_ripple" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:textColor="@color/tumblr_code"
+                       android:textSize="@dimen/tgif_first_char_size"
+                       android:textStyle="bold"
+                       android:layout_marginLeft="@dimen/tgif_name_left_margin"
+                       android:text="T"/>
+
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:textColor="@color/tgif_names_color"
+                       android:textSize="@dimen/tgif_name_size"
+                       android:text="@string/tumblr"/>
+
+               </LinearLayout>
+
+
+
+               <LinearLayout
+                   android:id="@+id/linear_layout_twitter"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   >
+                   
+                   
+
+                   <com.melnykov.fab.FloatingActionButton
+                       android:id="@+id/fab_twitter"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:onClick= "launch"
+                       android:elevation="@dimen/home_fab_elevetion"
+                       android:layout_gravity="bottom|right"
+                       android:layout_margin="@dimen/home_fab_margin"
+
+                       fab:fab_colorNormal="@color/twitter_code"
+                       fab:fab_colorPressed="@color/fab_color_pressed"
+                       fab:fab_colorRipple="@color/fab_color_ripple"
+                       />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:textColor="@color/twitter_code"
+                       android:textSize="@dimen/tgif_first_char_size"
+                       android:textStyle="bold"
+                       android:layout_marginLeft="@dimen/tgif_name_left_margin"
+                       android:text="T"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:textColor="@color/tgif_names_color"
+                       android:textSize="@dimen/tgif_name_size"
+                       android:layout_marginLeft="0dp"
+                       android:text="@string/twitter"/>
+
+               </LinearLayout>
+
+
+
+
+
+
+
+
+               <LinearLayout
+                   android:layout_width="fill_parent"
+                   android:orientation="horizontal"
+                   android:id="@+id/linear_layout_googlePlus"
+                   android:layout_height="wrap_content">
+
+                   <com.melnykov.fab.FloatingActionButton
+
+                       android:id="@+id/fab_googlePlus"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:onClick= "launch"
+                       android:elevation="@dimen/home_fab_elevetion"
+                       android:layout_gravity="bottom|right"
+                       android:layout_margin="@dimen/home_fab_margin"
+
+                       fab:fab_colorNormal="@color/google_plus_code"
+                       fab:fab_colorPressed="@color/fab_color_pressed"
+                       fab:fab_colorRipple="@color/fab_color_ripple" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:textColor="@color/google_plus_code"
+                       android:textSize="@dimen/tgif_first_char_size"
+                       android:textStyle="bold"
+                       android:layout_marginLeft="@dimen/tgif_name_left_margin"
+                       android:text="G"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:textColor="@color/tgif_names_color"
+                       android:textSize="@dimen/tgif_name_size"
+                       android:text="@string/google_plus"/>
+
+               </LinearLayout>
+
+
+
+
+
+               <LinearLayout
+                   android:layout_width="fill_parent"
+                   android:orientation="horizontal"
+
+                   android:id="@+id/linear_layout_instagram"
+                   android:layout_height="wrap_content">
+                   <com.melnykov.fab.FloatingActionButton
+                       android:id="@+id/fab_instagram"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:elevation="@dimen/home_fab_elevetion"
+                       android:onClick= "launch"
+                       android:layout_gravity="bottom|right"
+                       android:layout_margin="@dimen/home_fab_margin"
+
+                       fab:fab_colorNormal="@color/instagram_code"
+                       fab:fab_colorPressed="@color/fab_color_pressed"
+                       fab:fab_colorRipple="@color/fab_color_ripple" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:textColor="@color/instagram_code"
+                       android:textSize="@dimen/tgif_first_char_size"
+                       android:textStyle="bold"
+                       android:layout_marginLeft="@dimen/tgif_name_left_margin"
+                       android:text="I"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:textColor="@color/tgif_names_color"
+                       android:textSize="@dimen/tgif_name_size"
+                       android:text="@string/instagram"/>
+
+               </LinearLayout>
+
+
+
+
+
+               <LinearLayout
+                   android:layout_width="fill_parent"
+                   android:orientation="horizontal"
+                   android:id="@+id/linear_layout_facebook"
+                   android:layout_height="wrap_content">
+
+                   <com.melnykov.fab.FloatingActionButton
+                       android:id="@+id/fab_facebook"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:onClick= "launch"
+                       android:layout_gravity="bottom|right"
+                       android:layout_margin="@dimen/home_fab_margin"
+                       android:elevation="@dimen/home_fab_elevetion"
+
+                       fab:fab_colorNormal="@color/facebook_code"
+                       fab:fab_colorPressed="@color/fab_color_pressed"
+                       fab:fab_colorRipple="@color/fab_color_ripple" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:textColor="@color/facebook_code"
+                       android:textSize="@dimen/tgif_first_char_size"
+                       android:textStyle="bold"
+                       android:layout_marginLeft="@dimen/tgif_name_left_margin"
+                       android:text="F"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:textColor="@color/tgif_names_color"
+                       android:textSize="@dimen/tgif_name_size"
+                       android:text="@string/facebook"/>
+
+               </LinearLayout>
+
+
+           </LinearLayout>
+
+
+</ScrollView>
+

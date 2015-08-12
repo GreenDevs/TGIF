@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">TGIF</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_launcher">Launcher</string>
+    <string name="title_activity_no_internet">NoInternetActivity</string>
+    <string name="share">share</string>
+    <string name="title_activity_main">T G I F</string>
+    <string name="title_activity_web">WebActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="opened" >opened</string>
+    <string name="closed">closed</string>
+    <string name="title_activity_error_">About us</string>
+    <string name="title_activity_test_web">TestWeb</string>
+    <string name="action_about">about us</string>
+
+
+<!--              TGIF NAME COLLECTION                 -->
+    <string name="tumblr">umblr</string>
+    <string name="twitter">witter</string>
+    <string name="google_plus">oogle Plus</string>
+    <string name="instagram">nstagram</string>
+    <string name="facebook">acebook</string>
+
+    <!-- About Us Attributes    -->
+    <string name="action_share">share</string>
+    <string name="about_us">about us</string>
+
+    <string name="banner_large_txt">TGIF</string>
+    <string name="banner_small_txt">v1.0</string>
+    <string name="fblink_tv">https://www.facebook.com/crackdeveloperz</string>
+    <string name="emaillink_tv">aaenriquez257@gmail.com</string>
+    <string name="footer_txt_copyright">© crackDevelopers</string>
+    <string name="footer_txt_tgif_team">TGIF Team</string>
+    <string name="title_activity_testsd">testsd</string>
+
+    <string name="hello_world">Hello world!</string>
+
+</resources>

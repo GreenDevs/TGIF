@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="google_plus_code">#DC4434</color>
+    <color name="facebook_code">#3C5A98</color>
+    <color name="twitter_code">#3C8EC9</color>
+    <color name="tumblr_code">#36465D</color>
+    <color name="instagram_code">#3F739A</color>
+    <color name="activity_launcher_bg">#eee</color>
+    <color name="tgif_names_color">#000</color>
+
+
+    <color name="primary">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="primary_light">#BBDEFB</color>
+    <color name="accent">#03A9F4</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+
+
+    <color name="main_activity_bg">#E1EEFF</color>
+    <color name="fab_color_pressed">#008080</color>
+    <color name="fab_color_ripple">#008080</color>
+    <color name="nav_icon_sep_color">#99ffffff</color>
+
+
+</resources>
