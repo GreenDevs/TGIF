@@ -35,6 +35,6 @@
     <string name="footer_txt_tgif_team">TGIF Team</string>
     <string name="title_activity_testsd">testsd</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="home">&#xe0f4;</string>
 
 </resources>

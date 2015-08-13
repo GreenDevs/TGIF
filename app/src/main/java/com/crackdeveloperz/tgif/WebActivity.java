@@ -1,5 +1,6 @@
 package com.crackdeveloperz.tgif;
 
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +16,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.webkit.ValueCallback;
@@ -463,5 +466,43 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         mWebView.loadUrl(ColorsAndTitleForTheApp.currentLink);
         refreshFab.setVisibility(View.GONE);
     }
+
+
+    ////FOR ABOUT US///
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_web, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+
+        if (id == R.id.action_up)
+        {
+
+            ///THIS CODE IS USE TO SCROLL WEB VIEW TO THE TOP OF IT BY ANIMATING IT
+            if(mWebView!=null)
+            {
+                ObjectAnimator anim = ObjectAnimator.ofInt(mWebView, "scrollY", mWebView.getScrollY(), 0);
+                anim.setDuration(500);
+                anim.start();
+            }
+
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
 }

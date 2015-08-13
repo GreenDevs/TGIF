@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/primary"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="com.crackdeveloperz.tgif.NagivationDrawer">
 
@@ -15,7 +16,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/cross_at_drawer"
         android:background="@drawable/cross65"
-        android:layout_marginBottom="15dp"
         />
 
     <View

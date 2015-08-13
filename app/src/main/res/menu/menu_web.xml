@@ -3,4 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.crackdeveloperz.tgif.WebActivity">
 
+    <item android:id="@+id/action_up"
+        android:icon="@drawable/up_arrow"
+        android:title="@string/action_about"
+        app:showAsAction="ifRoom" />
+
 </menu>
