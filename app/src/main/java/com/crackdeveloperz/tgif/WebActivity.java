@@ -252,9 +252,9 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
             {
 
                 refreshFab.setVisibility(View.VISIBLE);
-                if (!mWebView.getUrl().toString().equals("file:///android_asset/connection_fail.html"))
+                if (!mWebView.getUrl().equals("file:///android_asset/connection_fail.html"))
                 {
-                          ColorsAndTitleForTheApp.currentLink =mWebView.getUrl().toString();
+                          ColorsAndTitleForTheApp.currentLink =mWebView.getUrl();
                 }
                 mWebView.loadUrl("file:///android_asset/connection_fail.html");
             }
