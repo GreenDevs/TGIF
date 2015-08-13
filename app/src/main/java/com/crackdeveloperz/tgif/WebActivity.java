@@ -36,6 +36,7 @@ import java.util.Date;
 
 public class WebActivity extends AppCompatActivity implements View.OnClickListener
 {
+    private static boolean flag=false;
     public int cancealCount = 2;
     public static long[] timestamp = {33, 33, 33};
     public static final String DATE_FORMAT="yyyyMMdd_HHmmSS";
@@ -244,10 +245,13 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
             WebView.setWebContentsDebuggingEnabled(true);
         }
 
+
+
         // We set the WebViewClient to ensure links are consumed by the WebView rather
         // than passed to a browser if it can
         mWebView.setWebViewClient(new WebViewClient()
         {
+
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl)
             {
 
@@ -258,7 +262,10 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
                 }
                 mWebView.loadUrl("file:///android_asset/connection_fail.html");
             }
-         });
+
+
+
+        });
 
 
     }
@@ -354,9 +361,9 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         }
         else
         {
-            ObjectAnimator anim = ObjectAnimator.ofInt(mWebView, "scrollY", mWebView.getScrollY(), 0);
-            anim.setDuration(500);
-            anim.start();
+//            ObjectAnimator anim = ObjectAnimator.ofInt(mWebView, "scrollY", mWebView.getScrollY(), 0);
+//            anim.setDuration(500);
+//            anim.start();
             cancealCount--;
             if (cancealCount == 1)
             {
