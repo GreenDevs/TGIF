@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crackdeveloperz.tgif.utility.Utility;
@@ -26,8 +25,8 @@ public class AboutActivity extends ActionBarActivity implements View.OnClickList
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        ((TextView)findViewById(R.id.fblink)).setOnClickListener(this);
-        ((TextView)findViewById(R.id.emaillink)).setOnClickListener(this);
+        (findViewById(R.id.fblink)).setOnClickListener(this);
+        (findViewById(R.id.emaillink)).setOnClickListener(this);
 
         Toolbar toolbar=(Toolbar)findViewById(R.id.about_toolbar);
          setSupportActionBar(toolbar);
@@ -104,6 +103,7 @@ public class AboutActivity extends ActionBarActivity implements View.OnClickList
                 try {
                     startActivity(intent);
                     overridePendingTransition(R.anim.down_to_top, R.anim.static_anim);
+                    this.finish();
                 } catch (Exception e) {
                     Toast.makeText(this, "link out of reach", Toast.LENGTH_SHORT).show();
                 }
