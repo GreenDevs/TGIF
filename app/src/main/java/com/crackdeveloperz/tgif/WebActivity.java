@@ -354,7 +354,9 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         }
         else
         {
-            mWebView.scrollTo(0, 0);
+            ObjectAnimator anim = ObjectAnimator.ofInt(mWebView, "scrollY", mWebView.getScrollY(), 0);
+            anim.setDuration(500);
+            anim.start();
             cancealCount--;
             if (cancealCount == 1)
             {
@@ -363,6 +365,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
             }
             if (cancealCount < 1)
             {
+                mWebView.loadUrl("about:blank");
                 super.onBackPressed();
             }
 
@@ -395,21 +398,6 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
     }
 
 
-    ///ADDED BY SARKI TO KILL THE VIDEO PLAY IN WEB VEIW WHEN IT IS AWAY FROM THE VIEW///
-    @Override
-    protected void onPause()
-    {
-        super.onPause();
-//            try
-//            {
-//                Class.forName("android.webkit.WebView").getMethod("onPause", (Class[]) null).invoke(mWebView, (Object[]) null);
-//            }
-//            catch (Exception e)
-//            {
-//                e.printStackTrace();
-//            }
-    }
-
 
     @Override
     public void onClick(View v)
@@ -420,38 +408,31 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
 
             case R.id.tumblr_at_drawer:
                 ColorsAndTitleForTheApp.setWebSiteVariable(ColorsAndTitleForTheApp.tumblr);
-                finish();
-                startActivity(intent);
                 break;
 
             case R.id.twitter_at_drawer:
                 ColorsAndTitleForTheApp.setWebSiteVariable(ColorsAndTitleForTheApp.twitter);
-                finish();
-                startActivity(intent);
                 break;
 
             case R.id.googleplus_at_drawer:
                 ColorsAndTitleForTheApp.setWebSiteVariable(ColorsAndTitleForTheApp.googlePlus);
-                finish();
-                startActivity(intent);
                 break;
 
             case R.id.insta_at_drawer:
                 ColorsAndTitleForTheApp.setWebSiteVariable(ColorsAndTitleForTheApp.instagram);
-                finish();
-                startActivity(intent);
                 break;
 
             case R.id.facebook_at_drawer:
                 ColorsAndTitleForTheApp.setWebSiteVariable(ColorsAndTitleForTheApp.facebook);
-                finish();
-                startActivity(intent);
                 break;
 
             default:
                 break;
 
         }
+        if(mWebView!=null) mWebView.loadUrl("about:blank");
+        finish();
+        startActivity(intent);
 
         overridePendingTransition(R.anim.right_to_left, R.anim.static_anim);
     }
