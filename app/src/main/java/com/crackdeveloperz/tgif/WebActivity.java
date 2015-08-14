@@ -340,6 +340,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
     }
 
 
+
     @Override
     public void onBackPressed()
     {
@@ -349,22 +350,21 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
 
         if (shouldGoBackTOHome())
         {
+            mWebView.loadUrl("about:blank");
             super.onBackPressed();
+
         }
 
-        WebView mWebView = (WebView) findViewById(R.id.fragment_main_webview);
         if (mWebView.canGoBack())
         {
             mWebView.goBack();
-            cancealCount = 3;
+            cancealCount = 2;
 
         }
         else
         {
-//            ObjectAnimator anim = ObjectAnimator.ofInt(mWebView, "scrollY", mWebView.getScrollY(), 0);
-//            anim.setDuration(500);
-//            anim.start();
-            cancealCount--;
+
+
             if (cancealCount == 1)
             {
 
@@ -375,6 +375,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
                 mWebView.loadUrl("about:blank");
                 super.onBackPressed();
             }
+            cancealCount--;
 
         }
 
@@ -387,7 +388,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         timestamp[0] = timestamp[1];
         timestamp[1] = timestamp[2];
         timestamp[2] = System.currentTimeMillis();
-        if ((timestamp[2] - timestamp[0]) < 1200)
+        if ((timestamp[2] - timestamp[1]) < 500)
         {
             result = true;
         }
@@ -395,6 +396,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         return result;
 
     }
+
 
 
     @Override
