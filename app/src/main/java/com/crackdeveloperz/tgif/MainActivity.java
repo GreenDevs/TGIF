@@ -88,9 +88,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed ()
     {
-        Utility.hideNagivation(this);
-        if ((System.currentTimeMillis()-WebActivity.timestamp[2]) <900){}
-        else { super.onBackPressed();  }
+        super.onBackPressed();
     }
 
 
