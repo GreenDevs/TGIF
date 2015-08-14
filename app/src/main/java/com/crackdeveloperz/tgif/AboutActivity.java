@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,12 +15,12 @@ import android.widget.Toast;
 import com.crackdeveloperz.tgif.utility.Utility;
 
 
-public class AboutActivity extends ActionBarActivity implements View.OnClickListener
+public class AboutActivity extends AppCompatActivity implements View.OnClickListener
 {
 
 
     private static final String FB_LINK="https://m.facebook.com/515289881959584";
-    private static final String EMAIL="aaenriquez257@gmail.com";
+    private static final String EMAIL="topappshacker@gmail.com";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
