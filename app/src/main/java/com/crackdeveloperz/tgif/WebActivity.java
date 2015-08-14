@@ -83,105 +83,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         }
 
 
-        mWebView.setWebChromeClient(new WebChromeClient() {
-            // For Android 3.0+
-            @SuppressWarnings("unused")
-            public void openFileChooser(ValueCallback<Uri[]> uploadMsg) {
-                if (mFilePathCallback != null) {
-                    mFilePathCallback.onReceiveValue(null);
-                }
-
-                mFilePathCallback = uploadMsg;
-                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-                i.addCategory(Intent.CATEGORY_OPENABLE);
-                i.setType("image/*");
-                startActivityForResult(Intent.createChooser(i, "File Chooser"), INPUT_FILE_REQUEST_CODE);
-            }
-
-            // For Android 3.0+
-            @SuppressWarnings("unused")
-            public void openFileChooser(ValueCallback<Uri[]> uploadMsg, String acceptType) {
-                if (mFilePathCallback != null) {
-                    mFilePathCallback.onReceiveValue(null);
-                }
-                mFilePathCallback = uploadMsg;
-                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-                i.addCategory(Intent.CATEGORY_OPENABLE);
-                i.setType("*/*");
-                startActivityForResult(Intent.createChooser(i, "File Browser"), INPUT_FILE_REQUEST_CODE);
-            }
-
-
-            // For Android 4.1
-            @SuppressWarnings("unused")
-            public void openFileChooser(ValueCallback<Uri[]> uploadMsg, String acceptType, String capture) {
-
-                if (mFilePathCallback != null) {
-
-                    mFilePathCallback.onReceiveValue(null);
-                }
-                mFilePathCallback = uploadMsg;
-                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-                i.addCategory(Intent.CATEGORY_OPENABLE);
-                i.setType("image/*");
-
-
-                startActivityForResult(Intent.createChooser(i, "File Chooser"), WebActivity.INPUT_FILE_REQUEST_CODE);
-            }
-
-            public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-                if (mFilePathCallback != null) {
-                    mFilePathCallback.onReceiveValue(null);
-                }
-
-                // the url of multiple images that are being  called back .
-                mFilePathCallback = filePathCallback;
-
-                // intent to start camera
-                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                    // Create the File where the photo should go
-                    File photoFile = null;
-
-                    try {
-                        photoFile = createImageFile();  // there is function to create an image below  which just creates a file with jpg format
-                        takePictureIntent.putExtra("PhotoPath", mCameraPhotoPath);
-                    } catch (IOException ex) {
-                        // Error occurred while creating the File
-                        // Log.e(TAG, "Unable to create Image File", ex);
-                    }
-
-                    // Continue only if the File was successfully created
-                    if (photoFile != null) {
-                        mCameraPhotoPath = "file:" + photoFile.getAbsolutePath();
-                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-                                Uri.fromFile(photoFile));
-                    } else {
-                        takePictureIntent = null;
-                    }
-                }
-
-                Intent contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                contentSelectionIntent.addCategory(Intent.CATEGORY_OPENABLE);
-                contentSelectionIntent.setType("image/*");
-
-                Intent[] intentArray;
-                if (takePictureIntent != null) {
-                    intentArray = new Intent[]{takePictureIntent};
-                } else {
-                    intentArray = new Intent[0];
-                }
-
-                Intent chooserIntent = new Intent(Intent.ACTION_CHOOSER);
-                chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent);
-                chooserIntent.putExtra(Intent.EXTRA_TITLE, "Image Chooser");
-                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
-
-                startActivityForResult(chooserIntent, INPUT_FILE_REQUEST_CODE);
-
-                return true;
-            }
-        });
+        setWebChromeChient();
 
         // Load the local index.html file
         if (mWebView.getUrl() == null) {
@@ -458,6 +360,112 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         // Vibrate for 500 milliseconds
         vibrator.vibrate(time);
+    }
+
+
+
+   public void  setWebChromeChient () {
+
+        mWebView.setWebChromeClient(new WebChromeClient() {
+            // For Android 3.0+
+            @SuppressWarnings("unused")
+            public void openFileChooser(ValueCallback<Uri[]> uploadMsg) {
+                if (mFilePathCallback != null) {
+                    mFilePathCallback.onReceiveValue(null);
+                }
+
+                mFilePathCallback = uploadMsg;
+                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                i.addCategory(Intent.CATEGORY_OPENABLE);
+                i.setType("image/*");
+                startActivityForResult(Intent.createChooser(i, "File Chooser"), INPUT_FILE_REQUEST_CODE);
+            }
+
+            // For Android 3.0+
+            @SuppressWarnings("unused")
+            public void openFileChooser(ValueCallback<Uri[]> uploadMsg, String acceptType) {
+                if (mFilePathCallback != null) {
+                    mFilePathCallback.onReceiveValue(null);
+                }
+                mFilePathCallback = uploadMsg;
+                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                i.addCategory(Intent.CATEGORY_OPENABLE);
+                i.setType("*/*");
+                startActivityForResult(Intent.createChooser(i, "File Browser"), INPUT_FILE_REQUEST_CODE);
+            }
+
+
+            // For Android 4.1
+            @SuppressWarnings("unused")
+            public void openFileChooser(ValueCallback<Uri[]> uploadMsg, String acceptType, String capture) {
+
+                if (mFilePathCallback != null) {
+
+                    mFilePathCallback.onReceiveValue(null);
+                }
+                mFilePathCallback = uploadMsg;
+                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                i.addCategory(Intent.CATEGORY_OPENABLE);
+                i.setType("image/*");
+
+
+                startActivityForResult(Intent.createChooser(i, "File Chooser"), WebActivity.INPUT_FILE_REQUEST_CODE);
+            }
+
+            public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+                if (mFilePathCallback != null) {
+                    mFilePathCallback.onReceiveValue(null);
+                }
+
+                // the url of multiple images that are being  called back .
+                mFilePathCallback = filePathCallback;
+
+                // intent to start camera
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                    // Create the File where the photo should go
+                    File photoFile = null;
+
+                    try {
+                        photoFile = createImageFile();  // there is function to create an image below  which just creates a file with jpg format
+                        takePictureIntent.putExtra("PhotoPath", mCameraPhotoPath);
+                    } catch (IOException ex) {
+                        // Error occurred while creating the File
+                        // Log.e(TAG, "Unable to create Image File", ex);
+                    }
+
+                    // Continue only if the File was successfully created
+                    if (photoFile != null) {
+                        mCameraPhotoPath = "file:" + photoFile.getAbsolutePath();
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                                Uri.fromFile(photoFile));
+                    } else {
+                        takePictureIntent = null;
+                    }
+                }
+
+                Intent contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                contentSelectionIntent.addCategory(Intent.CATEGORY_OPENABLE);
+                contentSelectionIntent.setType("image/*");
+
+                Intent[] intentArray;
+                if (takePictureIntent != null) {
+                    intentArray = new Intent[]{takePictureIntent};
+                } else {
+                    intentArray = new Intent[0];
+                }
+
+                Intent chooserIntent = new Intent(Intent.ACTION_CHOOSER);
+                chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent);
+                chooserIntent.putExtra(Intent.EXTRA_TITLE, "Image Chooser");
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
+
+                startActivityForResult(chooserIntent, INPUT_FILE_REQUEST_CODE);
+
+                return true;
+            }
+        });
+
     }
 
 }
