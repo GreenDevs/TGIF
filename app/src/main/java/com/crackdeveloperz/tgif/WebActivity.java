@@ -5,6 +5,8 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
@@ -26,6 +28,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crackdeveloperz.tgif.utility.Utility;
@@ -39,6 +42,9 @@ import java.util.Date;
 public class WebActivity extends AppCompatActivity implements View.OnClickListener  {
     private static boolean flag = false;
 
+    private TextView progressText;
+    private static final int tgif_count=5;
+    private int tgif_progress_pos=0;
     public static long[] timestamp = {33, 33};
     public static final String DATE_FORMAT = "yyyyMMdd_HHmmSS";
     public static final int INPUT_FILE_REQUEST_CODE = 1;
@@ -55,6 +61,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
 
+        progressText=(TextView)findViewById(R.id.progressText);
         Toolbar toolbar = (Toolbar) findViewById(R.id.web_app_bar);
         setSupportActionBar(toolbar);
         refreshFab = (FloatingActionButton) findViewById(R.id.refreshFabButton);
@@ -144,6 +151,27 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
                     ColorsAndTitleForTheApp.currentLink = mWebView.getUrl();
                 }
                 mWebView.loadUrl("file:///android_asset/connection_fail.html");
+
+
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon)
+            {
+                super.onPageStarted(view, url, favicon);
+                progressText.setText(".");
+                progressText.setTextColor(getResources().getColor(R.color.google_plus_code));
+                progressText.setVisibility(View.VISIBLE);
+
+            }
+
+
+
+            @Override
+            public void onPageFinished(WebView view, String url)
+            {
+                super.onPageFinished(view, url);
+                progressText.setVisibility(View.GONE);
             }
 
 
@@ -464,8 +492,51 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
 
                 return true;
             }
+
+
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                setProgressColor(tgif_progress_pos);
+                tgif_progress_pos = (tgif_progress_pos + 1) % tgif_count;
+            }
+
         });
 
+    }
+
+
+    private void setProgressColor(int pos)
+    {
+        Resources res=getResources();
+        switch (pos)
+        {
+            case 0:
+                progressText.setText(".");
+                progressText.setTextColor(res.getColor(R.color.tumblr_code));
+                break;
+            case 1:
+                progressText.setText("..");
+                progressText.setTextColor(res.getColor(R.color.twitter_code));
+                break;
+            case 2:
+                progressText.setText("...");
+                progressText.setTextColor(res.getColor(R.color.google_plus_code));
+                break;
+            case 3:
+                progressText.setText(".....");
+                progressText.setTextColor(res.getColor(R.color.instagram_code));
+                break;
+            case 4:
+                progressText.setText(".....");
+                progressText.setTextColor(res.getColor(R.color.facebook_code));
+                break;
+
+            default:
+                progressText.setText(".");
+                progressText.setTextColor(res.getColor(R.color.tumblr_code));
+                break;
+
+        }
     }
 
 }
