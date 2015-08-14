@@ -1,8 +1,10 @@
 package com.crackdeveloperz.tgif;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -64,6 +66,7 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
 
         if (id == android.R.id.home)
         {
+            vibrate(30);
             this.finish();
             return true;
 
@@ -76,6 +79,7 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v)
     {
+        vibrate(25);
         switch(v.getId())
         {
             case R.id.emaillink:
@@ -114,5 +118,12 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
 
+    }
+
+    public void vibrate (int time) {
+
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        // Vibrate for 500 milliseconds
+        vibrator.vibrate(time);
     }
 }

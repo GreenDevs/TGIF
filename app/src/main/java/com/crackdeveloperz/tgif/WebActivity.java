@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.webkit.ValueCallback;
@@ -35,9 +36,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class WebActivity extends AppCompatActivity implements View.OnClickListener {
+public class WebActivity extends AppCompatActivity implements View.OnClickListener  {
     private static boolean flag = false;
-    public int cancealCount = 2;
+
     public static long[] timestamp = {33, 33};
     public static final String DATE_FORMAT = "yyyyMMdd_HHmmSS";
     public static final int INPUT_FILE_REQUEST_CODE = 1;
@@ -61,6 +62,16 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         mNagivationDrawer = (NagivationDrawer) getSupportFragmentManager().findFragmentById(R.id.nagivation_drawer);
         mNagivationDrawer.setup(mDrawerLayout, toolbar);
         mWebView = (WebView) findViewById(R.id.fragment_main_webview);
+        mWebView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+
+               if (event.getAction() == MotionEvent.ACTION_DOWN) vibrate(17);
+                return false;
+            }
+        });
+
         setTheme();
 
         // set some properties of webview that we are going to use
@@ -225,7 +236,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         mWebView.setWebViewClient(new WebViewClient() {
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-
+                refreshFab.setBackgroundColor(ColorsAndTitleForTheApp.currentToolBarColor);
                 refreshFab.setVisibility(View.VISIBLE);
                 if (!mWebView.getUrl().equals("file:///android_asset/connection_fail.html")) {
                     ColorsAndTitleForTheApp.currentLink = mWebView.getUrl();
@@ -361,6 +372,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
+        vibrate(30);
         Intent intent = getIntent();
         switch (v.getId()) {
 
@@ -397,11 +409,11 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
 
 
     public void refresh(View v) {
-        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        // Vibrate for 500 milliseconds
-        vibrator.vibrate(70);
+
 
         mWebView.loadUrl(ColorsAndTitleForTheApp.currentLink);
+
+        vibrate(50);
         refreshFab.setVisibility(View.GONE);
     }
 
@@ -424,6 +436,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         //noinspection SimplifiableIfStatement
 
         if (id == R.id.action_up) {
+            vibrate(30);
 
             ///THIS CODE IS USE TO SCROLL WEB VIEW TO THE TOP OF IT BY ANIMATING IT
             if (mWebView != null) {
@@ -439,5 +452,12 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         return super.onOptionsItemSelected(item);
     }
 
+
+    public void vibrate (int time) {
+
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        // Vibrate for 500 milliseconds
+        vibrator.vibrate(time);
+    }
 
 }

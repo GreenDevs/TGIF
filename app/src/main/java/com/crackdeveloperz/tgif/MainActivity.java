@@ -1,8 +1,10 @@
 
 package com.crackdeveloperz.tgif;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity
 
     public void launch(View v)
     {
+
+        vibrate(30);
 
             Intent intent = new Intent(this, WebActivity.class);
             switch (v.getId())
@@ -76,7 +80,7 @@ public class MainActivity extends AppCompatActivity
                 default:
                     break;
 
-//            }
+
 
 
         }
@@ -127,6 +131,7 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_about)
         {
+            vibrate(30);
             startActivity(new Intent(this, AboutActivity.class));
             overridePendingTransition(R.anim.right_to_left, R.anim.static_anim);
             return true;
@@ -135,6 +140,14 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
+
+    public void vibrate (int time) {
+
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        // Vibrate for 500 milliseconds
+        vibrator.vibrate(time);
+    }
 
 
 }
