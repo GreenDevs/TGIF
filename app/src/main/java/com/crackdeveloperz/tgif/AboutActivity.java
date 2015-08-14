@@ -4,6 +4,7 @@ package com.crackdeveloperz.tgif;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -33,6 +34,10 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
 
         Toolbar toolbar=(Toolbar)findViewById(R.id.about_toolbar);
          setSupportActionBar(toolbar);
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        {
+            getWindow().setStatusBarColor(ColorsAndTitleForTheApp.TUMBLR_STATUSBAR);
+        }
 
         if(getSupportActionBar()!=null)
         {
