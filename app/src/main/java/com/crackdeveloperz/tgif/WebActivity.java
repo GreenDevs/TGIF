@@ -3,6 +3,7 @@ package com.crackdeveloperz.tgif;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -18,6 +19,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -30,7 +32,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.crackdeveloperz.tgif.utility.Utility;
 import com.melnykov.fab.FloatingActionButton;
 
@@ -92,6 +93,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
 
         setWebChromeChient();
 
+
         // Load the local index.html file
         if (mWebView.getUrl() == null) {
             mWebView.loadUrl(ColorsAndTitleForTheApp.currentLink);
@@ -143,6 +145,46 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         // We set the WebViewClient to ensure links are consumed by the WebView rather
         // than passed to a browser if it can
         mWebView.setWebViewClient(new WebViewClient() {
+
+
+
+
+
+
+
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                // handle different requests for different type of files
+                //fb ko view full size handa pic download huncha ;)
+
+                // everything else the webview can handle normally
+                if (true && !(ColorsAndTitleForTheApp.currentLink.equals(ColorsAndTitleForTheApp.TU_LINK))) { /*if url.endswith(".jpg") { // execute code for jpg file here hai keta ho / */
+                    Uri source = Uri.parse(url);
+                    // Make a new request pointing to the .apk url
+                    DownloadManager.Request request = new DownloadManager.Request(source);
+                    // appears the same in Notification bar while downloading
+                    request.setDescription("Change Extenction if not image ");
+                    request.setTitle(url);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                        request.allowScanningByMediaScanner();
+                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                    }
+                    // save the file in the "Downloads" folder of SDCARD
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,    System.currentTimeMillis()+".jpg");
+                    // get download service and enqueue file
+                    DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                    manager.enqueue(request);
+                }
+
+                return false;
+            }
+
+
+
+
+
+
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 refreshFab.setBackgroundColor(ColorsAndTitleForTheApp.currentToolBarColor);
