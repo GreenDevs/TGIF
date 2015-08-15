@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity
     public void launch(View v)
     {
 
-        vibrate(30);
+
 
             Intent intent = new Intent(this, WebActivity.class);
             switch (v.getId())
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_about)
         {
-            vibrate(30);
+            vibrate(20);
             startActivity(new Intent(this, AboutActivity.class));
             overridePendingTransition(R.anim.right_to_left, R.anim.static_anim);
             return true;

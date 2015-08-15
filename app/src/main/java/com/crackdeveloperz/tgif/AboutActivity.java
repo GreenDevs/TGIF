@@ -71,7 +71,7 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
 
         if (id == android.R.id.home)
         {
-            vibrate(30);
+            vibrate(20);
             this.finish();
             return true;
 
@@ -84,7 +84,7 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v)
     {
-        vibrate(25);
+        vibrate(15);
         switch(v.getId())
         {
             case R.id.emaillink:
