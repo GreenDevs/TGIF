@@ -32,6 +32,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.crackdeveloperz.tgif.utility.GetExtenction;
 import com.crackdeveloperz.tgif.utility.Utility;
 import com.melnykov.fab.FloatingActionButton;
 
@@ -70,15 +72,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
         mNagivationDrawer = (NagivationDrawer) getSupportFragmentManager().findFragmentById(R.id.nagivation_drawer);
         mNagivationDrawer.setup(mDrawerLayout, toolbar);
         mWebView = (WebView) findViewById(R.id.fragment_main_webview);
-        mWebView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
 
-
-               if (event.getAction() == MotionEvent.ACTION_DOWN) vibrate(17);
-                return false;
-            }
-        });
 
         setTheme();
 
@@ -159,7 +153,9 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
                 //fb ko view full size handa pic download huncha ;)
 
                 // everything else the webview can handle normally
-                if (true && !(ColorsAndTitleForTheApp.currentLink.equals(ColorsAndTitleForTheApp.TU_LINK))) { /*if url.endswith(".jpg") { // execute code for jpg file here hai keta ho / */
+                if (GetExtenction.isValid(url)) { /*if url.endswith(".jpg") { // true && !(ColorsAndTitleForTheApp.currentLink.equals(ColorsAndTitleForTheApp.TU_LINK)/ */
+
+                   Log.i("link " , url);
                     Uri source = Uri.parse(url);
                     // Make a new request pointing to the .apk url
                     DownloadManager.Request request = new DownloadManager.Request(source);
@@ -171,7 +167,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
                         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                     }
                     // save the file in the "Downloads" folder of SDCARD
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,    System.currentTimeMillis()+".jpg");
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,    System.currentTimeMillis()+GetExtenction.a);
                     // get download service and enqueue file
                     DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
                     manager.enqueue(request);
@@ -428,7 +424,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
     public void vibrate (int time) {
 
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        // Vibrate for 500 milliseconds
+
         vibrator.vibrate(time);
     }
 
